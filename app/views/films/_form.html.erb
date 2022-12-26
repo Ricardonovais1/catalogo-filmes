@@ -1,0 +1,19 @@
+<%= form_with model: film do | f | %>
+   <%= f.label 'Título: ' %>
+   <%= f.text_field :name %>
+
+   <%= f.label 'Ano: ' %>
+   <%= f.number_field :year %>
+
+   <%= f.label 'Gênero: '%>
+   <%= f.collection_select :category_id, Category.all, :id, :name %><br>
+
+   <%= f.label 'Sinopse: ' %>
+   <%= f.text_area :synopsis %>
+
+   <%= f.label 'Duração: ' %>
+   <%= f.number_field :duration %>
+
+   <%= f.submit 'Salvar' %><br>
+
+<% end %>

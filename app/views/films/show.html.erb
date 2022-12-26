@@ -6,6 +6,12 @@
     </div>
 <% end %>
 
+<% if flash[:success] %>
+    <div style="margin: 10px 0px">
+        <%= flash[:success] %>
+    </div>
+<% end %>
+
 <dl>
     <% #Poderia ter um <dt> </dt>%>
     <dd>
@@ -26,6 +32,8 @@
 </dl>
 
 <li>
-      <%= link_to 'Editar informações deste filme', edit_film_path(id: @film.id) %>
+      <%= link_to 'Editar', edit_film_path %>
 </li>
-
+<li>
+      <%= link_to 'Excluir', film_path(@film), method: :destroy %>
+</li>

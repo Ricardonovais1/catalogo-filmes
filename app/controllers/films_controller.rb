@@ -39,4 +39,11 @@ class FilmsController < ApplicationController
 
         render :edit
     end
+
+    def destroy
+        @film = Film.find(params[:id])
+        @film.destroy
+        flash[:success] = 'Filme excluído com sucesso!'
+        redirect_to new_film_path
+    end
 end

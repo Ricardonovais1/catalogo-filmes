@@ -4,11 +4,11 @@ class CategoriesController < ApplicationController
    end
 
    def new 
-    @category = Category.new
+       @category = Category.new
    end
 
    def create
-    @category = Category.new(name: params[:category][:name])
+       @category = Category.new(name: params[:category][:name])
 
     if @category.save 
         flash[:notice] = 'Categoria registrada com sucesso!'

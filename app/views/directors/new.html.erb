@@ -1,0 +1,39 @@
+<h1>Cadastre um novo diretor:</h1>
+
+<%= form_with model: @director do | f |%>
+    <div>
+        <%= f.label :name, 'Nome: ' %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :country, 'País: ' %>
+        <%= f.text_field :country %>
+    </div>
+
+    <div>
+        <%= f.label :birth_year, 'Ano Nasc.: ' %>
+        <%= f.number_field :birth_year %>
+    </div>
+
+     <div>
+        <%= f.label 'Gênero: '%>
+        <%= f.collection_select :category_id, Category.all, :id, :name %><br>
+    </div>
+   
+
+    <div>
+        <%= f.submit 'Salvar' %>
+    </div>
+<% end %>
+
+<h2>Diretores registrados:</h2>
+
+<% @directors.each do |director| %>
+    <ul>
+       <li>
+          <%= content_tag(:p, director.name) %>
+       </li>
+    </ul>
+      
+<% end %>

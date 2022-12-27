@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_26_145037) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_27_201244) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "directors", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.integer "birth_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "category_id", default: 0, null: false
+    t.index ["category_id"], name: "index_directors_on_category_id"
   end
 
   create_table "films", force: :cascade do |t|
@@ -28,5 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_145037) do
     t.index ["category_id"], name: "index_films_on_category_id"
   end
 
+  add_foreign_key "directors", "categories"
   add_foreign_key "films", "categories"
 end

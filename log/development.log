@@ -11648,3 +11648,548 @@ Processing by FilmsController#show as HTML
 Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.8ms | Allocations: 8925)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDirectors (20221227193722)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "directors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "country" varchar, "birth_year" integer, "main_category_id" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_79a245aa92"
+FOREIGN KEY ("main_category_id")
+  REFERENCES "main_categories" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_directors_on_main_category_id" ON "directors" ("main_category_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221227193722"]]
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+Started GET "/films/new" for ::1 at 2022-12-27 15:02:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  Rendered films/_form.html.erb (Duration: 20.8ms | Allocations: 8090)
+  Rendered films/new.html.erb within layouts/application (Duration: 22.0ms | Allocations: 8587)
+  Rendered layout layouts/application.html.erb (Duration: 79.4ms | Allocations: 42848)
+Completed 200 OK in 100ms (Views: 81.2ms | ActiveRecord: 1.4ms | Allocations: 52473)
+
+
+Started GET "/categories/new" for ::1 at 2022-12-27 15:02:49 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1048)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3537)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 4323)
+
+
+Started GET "/films/new" for ::1 at 2022-12-27 15:03:17 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  Rendered films/_form.html.erb (Duration: 7.9ms | Allocations: 2550)
+  Rendered films/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2615)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4887)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 5200)
+
+
+Started POST "/films" for ::1 at 2022-12-27 15:03:41 -0500
+Processing by FilmsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "film"=>{"name"=>"Piratas do Caribe", "year"=>"2003", "category_id"=>"5", "synopsis"=>"O pirata Jack Sparrow tem seu navio saqueado e roubado pelo capitão Barbossa e sua tripulação. Com o navio de Sparrow, Barbossa invade a cidade de Port Royal, levando consigo Elizabeth Swann, filha do governador. Para recuperar sua embarcação, Sparrow recebe a ajuda de Will Turner, um grande amigo de Elizabeth. Eles desbravam os mares em direção à misteriosa Ilha da Morte, tentando impedir que os piratas-esqueleto derramem o sangue de Elizabeth para desfazer a maldição que os assola.", "duration"=>"120"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/films_controller.rb:18:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:18:in `create'
+  [1m[36mFilm Create (0.4ms)[0m  [1m[32mINSERT INTO "films" ("name", "year", "synopsis", "duration", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Piratas do Caribe"], ["year", 2003], ["synopsis", "O pirata Jack Sparrow tem seu navio saqueado e roubado pelo capitão Barbossa e sua tripulação. Com o navio de Sparrow, Barbossa invade a cidade de Port Royal, levando consigo Elizabeth Swann, filha do governador. Para recuperar sua embarcação, Sparrow recebe a ajuda de Will Turner, um grande amigo de Elizabeth. Eles desbravam os mares em direção à misteriosa Ilha da Morte, tentando impedir que os piratas-esqueleto derramem o sangue de Elizabeth para desfazer a maldição que os assola."], ["duration", 120], ["created_at", "2022-12-27 20:03:41.399111"], ["updated_at", "2022-12-27 20:03:41.399111"], ["category_id", 5]]
+  ↳ app/controllers/films_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/films_controller.rb:18:in `create'
+Redirected to http://localhost:3000/films/5
+Completed 302 Found in 21ms (ActiveRecord: 4.8ms | Allocations: 9449)
+
+
+Started GET "/films/5" for ::1 at 2022-12-27 15:03:41 -0500
+Processing by FilmsController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:25
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/films/show.html.erb:43
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  Rendered films/show.html.erb within layouts/application (Duration: 11.5ms | Allocations: 5410)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 7790)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.6ms | Allocations: 9482)
+
+
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveMainCategoryIdFromDirector (20221227201118)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adirectors" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "country" varchar DEFAULT NULL, "birth_year" integer DEFAULT NULL, "main_category_id" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_adirectors_on_main_category_id" ON "adirectors" ("main_category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "adirectors" ("id","name","country","birth_year","main_category_id","created_at","updated_at")
+                     SELECT "id","name","country","birth_year","main_category_id","created_at","updated_at" FROM "directors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "directors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "directors" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "country" varchar DEFAULT NULL, "birth_year" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "directors" ("id","name","country","birth_year","created_at","updated_at")
+                     SELECT "id","name","country","birth_year","created_at","updated_at" FROM "adirectors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adirectors"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221227201118"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCategoryToDirector (20221227201244)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "directors" ADD "category_id" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_directors_on_category_id" ON "directors" ("category_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adirectors" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "country" varchar DEFAULT NULL, "birth_year" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "category_id" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_adirectors_on_category_id" ON "adirectors" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "adirectors" ("id","name","country","birth_year","created_at","updated_at","category_id")
+                     SELECT "id","name","country","birth_year","created_at","updated_at","category_id" FROM "directors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "directors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "directors" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "country" varchar DEFAULT NULL, "birth_year" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "category_id" integer DEFAULT 0 NOT NULL, CONSTRAINT "fk_rails_005920ffd6"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_directors_on_category_id" ON "directors" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "directors" ("id","name","country","birth_year","created_at","updated_at","category_id")
+                     SELECT "id","name","country","birth_year","created_at","updated_at","category_id" FROM "adirectors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adirectors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221227201244"]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDirector Create (0.2ms)[0m  [1m[32mINSERT INTO "directors" ("name", "country", "birth_year", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ric"], ["country", "Brasil"], ["birth_year", 1979], ["created_at", "2022-12-27 20:15:56.184227"], ["updated_at", "2022-12-27 20:15:56.184227"], ["category_id", 1]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+Started GET "/films/5" for ::1 at 2022-12-27 17:20:46 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:25
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/films/show.html.erb:43
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  Rendered films/show.html.erb within layouts/application (Duration: 32.9ms | Allocations: 11951)
+  Rendered layout layouts/application.html.erb (Duration: 101.7ms | Allocations: 46533)
+Completed 200 OK in 129ms (Views: 102.6ms | ActiveRecord: 2.7ms | Allocations: 58596)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:20:47 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  Rendered directors/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 6625)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 6723)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.7ms | Allocations: 10927)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze; @directors.each do |director| 
+                    ^^^^^):
+    29: 
+    30: <h2>Diretores registrados:</h2>
+    31: 
+    32: <% @directors.each do |director| %>
+    33:   <% if director.category[:name] == @director.category[:name]  %>
+    34:       <%= content_tag(:p, director.name) %>
+    35:   <% end %>
+  
+app/views/directors/new.html.erb:32
+Started GET "/directors/new" for ::1 at 2022-12-27 17:21:11 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/directors/new.html.erb:33
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/views/directors/new.html.erb:33
+  Rendered directors/new.html.erb within layouts/application (Duration: 20.0ms | Allocations: 10523)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 10612)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.1ms | Allocations: 14355)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass
+
+   if director.category[:name] == @director.category[:name]  
+                                                    ^^^^^^^):
+    30: <h2>Diretores registrados:</h2>
+    31: 
+    32: <% @directors.each do |director| %>
+    33:   <% if director.category[:name] == @director.category[:name]  %>
+    34:       <%= content_tag(:p, director.name) %>
+    35:   <% end %>
+    36: <% end %>
+  
+app/views/directors/new.html.erb:33
+app/views/directors/new.html.erb:32
+Started GET "/directors/new" for ::1 at 2022-12-27 17:22:08 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3137)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 17364)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.2ms | Allocations: 18205)
+
+
+Started POST "/directors" for ::1 at 2022-12-27 17:22:24 -0500
+Processing by DirectorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "director"=>{"name"=>"Steven Spilberg", "country"=>"EUA", "birth_year"=>"1970", "category_id"=>"5"}, "commit"=>"Salvar"}
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  Rendered directors/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3749)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3830)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 5331)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze; @directors.each do |director| 
+                    ^^^^^):
+    29: 
+    30: <h2>Diretores registrados:</h2>
+    31: 
+    32: <% @directors.each do |director| %>
+    33:   <% if director[:name] == @director[:name]  %>
+    34:       <%= content_tag(:p, director.name) %>
+    35:   <% end %>
+  
+app/views/directors/new.html.erb:32
+app/controllers/directors_controller.rb:21:in `create'
+Started GET "/directors/new" for ::1 at 2022-12-27 17:23:10 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3151)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 5926)
+Completed 200 OK in 24ms (Views: 21.7ms | ActiveRecord: 0.2ms | Allocations: 6744)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:23:18 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2462)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4760)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.3ms | Allocations: 5070)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:23:34 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 5641)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 19881)
+Completed 200 OK in 40ms (Views: 31.4ms | ActiveRecord: 1.6ms | Allocations: 23959)
+
+
+Started POST "/directors" for ::1 at 2022-12-27 17:23:45 -0500
+Processing by DirectorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "director"=>{"name"=>"Steven Spilberg", "country"=>"EUA", "birth_year"=>"1950", "category_id"=>"5"}, "commit"=>"Salvar"}
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  Rendered directors/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3618)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3698)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 5516)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze; @directors.each do |director| 
+                    ^^^^^):
+    29: 
+    30: <h2>Diretores registrados:</h2>
+    31: 
+    32: <% @directors.each do |director| %>
+    33:   <%# <% if director[:name] == @director[:name]  %> 
+    34:       <%= content_tag(:p, director.name) %>
+    35:   <%# <% end %>
+  
+app/views/directors/new.html.erb:32
+app/controllers/directors_controller.rb:21:in `create'
+Started GET "/directors/new" for ::1 at 2022-12-27 17:24:52 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3127)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5903)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 6712)
+
+
+Started GET "/films/new" for ::1 at 2022-12-27 17:25:37 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  Rendered films/_form.html.erb (Duration: 6.6ms | Allocations: 3435)
+  Rendered films/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3716)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 6236)
+Completed 200 OK in 20ms (Views: 12.6ms | ActiveRecord: 0.7ms | Allocations: 9851)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:26:27 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  Rendered directors/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2057)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2145)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2996)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 7, expected 4..6)):
+    18: 
+    19:      <div>
+    20:         <%= f.label 'Gênero: '%>
+    21:         <%= f.collection_select :category_id, Category.all, :id, :name, :country, :birth_year, :category_id %><br>
+    22:     </div>
+    23:    
+    24: 
+  
+app/views/directors/new.html.erb:21
+app/views/directors/new.html.erb:3
+Started GET "/directors/new" for ::1 at 2022-12-27 17:27:11 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3129)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5904)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.2ms | Allocations: 6737)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:28:33 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.2ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 5268)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 19229)
+Completed 200 OK in 39ms (Views: 30.8ms | ActiveRecord: 1.6ms | Allocations: 22985)
+
+
+Started POST "/directors" for ::1 at 2022-12-27 17:28:41 -0500
+Processing by DirectorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "director"=>{"name"=>"Steven Spilberg", "country"=>"EUA", "birth_year"=>"123", "category_id"=>"2"}, "commit"=>"Salvar"}
+  Rendering layout layouts/application.html.erb
+  Rendering directors/show.html.erb within layouts/application
+  Rendered directors/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 2398)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 4293)
+
+
+Started POST "/directors" for ::1 at 2022-12-27 17:28:43 -0500
+Processing by DirectorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "director"=>{"name"=>"Steven Spilberg", "country"=>"EUA", "birth_year"=>"123", "category_id"=>"2"}, "commit"=>"Salvar"}
+  Rendering layout layouts/application.html.erb
+  Rendering directors/show.html.erb within layouts/application
+  Rendered directors/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2300)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 3394)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:34:15 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.2ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 4962)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 18954)
+Completed 200 OK in 43ms (Views: 35.3ms | ActiveRecord: 0.7ms | Allocations: 22217)
+
+
+Started POST "/directors" for ::1 at 2022-12-27 17:34:20 -0500
+Processing by DirectorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "director"=>{"name"=>"Steven Spilberg", "country"=>"EUA", "birth_year"=>"123", "category_id"=>"1"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mDirector Create (0.4ms)[0m  [1m[32mINSERT INTO "directors" ("name", "country", "birth_year", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steven Spilberg"], ["country", "EUA"], ["birth_year", 123], ["created_at", "2022-12-27 22:34:20.903097"], ["updated_at", "2022-12-27 22:34:20.903097"], ["category_id", 1]]
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+Redirected to http://localhost:3000/directors/2
+Completed 302 Found in 15ms (ActiveRecord: 5.1ms | Allocations: 6271)
+
+
+Started GET "/directors/2" for ::1 at 2022-12-27 17:34:20 -0500
+Processing by DirectorsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering directors/show.html.erb within layouts/application
+  Rendered directors/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2579)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 2884)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:35:40 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 5647)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 19928)
+Completed 200 OK in 37ms (Views: 29.0ms | ActiveRecord: 1.5ms | Allocations: 23966)
+
+
+Started POST "/directors" for ::1 at 2022-12-27 17:36:01 -0500
+Processing by DirectorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "director"=>{"name"=>"Taylor Spencer", "country"=>"EUA", "birth_year"=>"1971", "category_id"=>"3"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mDirector Create (0.4ms)[0m  [1m[32mINSERT INTO "directors" ("name", "country", "birth_year", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Taylor Spencer"], ["country", "EUA"], ["birth_year", 1971], ["created_at", "2022-12-27 22:36:01.357923"], ["updated_at", "2022-12-27 22:36:01.357923"], ["category_id", 3]]
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+Redirected to http://localhost:3000/directors/3
+Completed 302 Found in 48ms (ActiveRecord: 5.1ms | Allocations: 5472)
+
+
+Started GET "/directors/3" for ::1 at 2022-12-27 17:36:01 -0500
+Processing by DirectorsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  Rendering layout layouts/application.html.erb
+  Rendering directors/show.html.erb within layouts/application
+  Rendered directors/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 73)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 2651)
+Completed 200 OK in 38ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 3070)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:36:21 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 5299)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 19270)
+Completed 200 OK in 40ms (Views: 32.0ms | ActiveRecord: 1.6ms | Allocations: 22986)
+
+
+Started POST "/directors" for ::1 at 2022-12-27 17:36:44 -0500
+Processing by DirectorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "director"=>{"name"=>"George Lucas", "country"=>"EUA", "birth_year"=>"1952", "category_id"=>"2"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mDirector Create (0.3ms)[0m  [1m[32mINSERT INTO "directors" ("name", "country", "birth_year", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "George Lucas"], ["country", "EUA"], ["birth_year", 1952], ["created_at", "2022-12-27 22:36:44.585921"], ["updated_at", "2022-12-27 22:36:44.585921"], ["category_id", 2]]
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (48.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/directors_controller.rb:17:in `create'
+Redirected to http://localhost:3000/directors/new
+Completed 302 Found in 59ms (ActiveRecord: 49.3ms | Allocations: 5468)
+
+
+Started GET "/directors/new" for ::1 at 2022-12-27 17:36:44 -0500
+Processing by DirectorsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2556)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 4860)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 5181)
+
+

@@ -9757,3 +9757,133 @@ Processing by FilmsController#show as TURBO_STREAM
 Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 4000)
 
 
+Started GET "/films/1" for ::1 at 2022-12-27 06:24:27 -0500
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:24
+  Rendered films/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1031)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 3309)
+Completed 200 OK in 40ms (Views: 23.3ms | ActiveRecord: 4.0ms | Allocations: 4227)
+
+
+Started GET "/" for ::1 at 2022-12-27 06:24:30 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 917)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3461)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.2ms | Allocations: 3731)
+
+
+Started GET "/films/2" for ::1 at 2022-12-27 06:24:32 -0500
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:24
+  Rendered films/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 994)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3260)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 3987)
+
+
+Started GET "/films/2/edit" for ::1 at 2022-12-27 06:24:33 -0500
+Processing by FilmsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering films/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  Rendered films/_form.html.erb (Duration: 5.3ms | Allocations: 2549)
+  Rendered films/edit.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2612)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4875)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 5601)
+
+
+Started PATCH "/films/2" for ::1 at 2022-12-27 06:25:50 -0500
+Processing by FilmsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "film"=>{"name"=>"Ace Ventura", "year"=>"1994", "category_id"=>"3", "synopsis"=>"Ace Ventura (Jim Carrey) é um detetive especializado em desvendar crimes envolvendo animais. Apesar de viver cercado de bichos, ele não tem muito trabalho no cotidiano. Entretanto, quando o golfinho do Miami Dolphins, equipe de futebol americano, é sequestrado, Ace finalmente tem um caso a investigar. Atrapalhado como é, ele conduz a investigação de uma maneira bem peculiar.", "duration"=>"90"}, "commit"=>"Salvar", "id"=>"2"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/films_controller.rb:32:in `update'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:32:in `update'
+  [1m[36mFilm Update (0.5ms)[0m  [1m[33mUPDATE "films" SET "name" = ?, "year" = ?, "synopsis" = ?, "duration" = ?, "updated_at" = ?, "category_id" = ? WHERE "films"."id" = ?[0m  [["name", "Ace Ventura"], ["year", 1994], ["synopsis", "Ace Ventura (Jim Carrey) é um detetive especializado em desvendar crimes envolvendo animais. Apesar de viver cercado de bichos, ele não tem muito trabalho no cotidiano. Entretanto, quando o golfinho do Miami Dolphins, equipe de futebol americano, é sequestrado, Ace finalmente tem um caso a investigar. Atrapalhado como é, ele conduz a investigação de uma maneira bem peculiar."], ["duration", 90], ["updated_at", "2022-12-27 11:25:50.394915"], ["category_id", 3], ["id", 2]]
+  ↳ app/controllers/films_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/films_controller.rb:32:in `update'
+Redirected to http://localhost:3000/films/2
+Completed 302 Found in 17ms (ActiveRecord: 5.3ms | Allocations: 3784)
+
+
+Started GET "/films/2" for ::1 at 2022-12-27 06:25:50 -0500
+Processing by FilmsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:24
+  Rendered films/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1005)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3268)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 3997)
+
+
+Started GET "/" for ::1 at 2022-12-27 06:25:52 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3428)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms | Allocations: 3698)
+
+
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFilm Destroy (0.5ms)[0m  [1m[31mDELETE FROM "films" WHERE "films"."id" = ?[0m  [["id", 7]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFilm Destroy (0.2ms)[0m  [1m[31mDELETE FROM "films" WHERE "films"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFilm Destroy (0.2ms)[0m  [1m[31mDELETE FROM "films" WHERE "films"."id" = ?[0m  [["id", 4]]
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFilm Destroy (0.5ms)[0m  [1m[31mDELETE FROM "films" WHERE "films"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFilm Destroy (0.2ms)[0m  [1m[31mDELETE FROM "films" WHERE "films"."id" = ?[0m  [["id", 6]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2022-12-27 06:27:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 6402)
+  Rendered layout layouts/application.html.erb (Duration: 110.8ms | Allocations: 41190)
+Completed 200 OK in 133ms (Views: 112.4ms | ActiveRecord: 2.3ms | Allocations: 45826)
+
+

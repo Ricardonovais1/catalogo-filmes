@@ -43,7 +43,8 @@ class FilmsController < ApplicationController
     def destroy
         @film = Film.find(params[:id])
         @film.destroy
-        flash[:success] = 'Filme excluído com sucesso!'
-        redirect_to new_film_path
+        # flash[:success] = 'Filme excluído com sucesso!'
+        redirect_to root_path, notice: "Article was successfully deleted."
+        
     end
 end

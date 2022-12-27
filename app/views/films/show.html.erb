@@ -1,3 +1,4 @@
+
 <h2>Descrição do filme <%= @film.name%></h2>
 
 <% if flash[:notice] %>
@@ -34,5 +35,15 @@
 <li>
       <%= link_to 'Editar', edit_film_path %>
 </li>
+
+<h2>Outros filmes do gênero <%= @film.category[:name]%>:</h2>
+
+
+
+<% @films.each do |film| %>
+  <% if film.category[:name] == @film.category[:name]  %>
+      <%= content_tag(:p, film.name) %>
+  <% end %>
+<% end %>
 
 

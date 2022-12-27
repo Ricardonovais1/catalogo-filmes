@@ -1,6 +1,7 @@
 class FilmsController < ApplicationController
     def show
         @film = Film.find(params[:id])
+        @films = Film.all
     end
 
     def new

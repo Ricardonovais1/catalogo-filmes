@@ -11515,3 +11515,136 @@ Processing by FilmsController#show as HTML
 Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.8ms | Allocations: 7307)
 
 
+Started GET "/" for ::1 at 2022-12-27 14:20:51 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 6497)
+  Rendered layout layouts/application.html.erb (Duration: 72.5ms | Allocations: 42665)
+Completed 200 OK in 84ms (Views: 74.2ms | ActiveRecord: 0.7ms | Allocations: 47342)
+
+
+Started GET "/films/1" for ::1 at 2022-12-27 14:20:52 -0500
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:25
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/films/show.html.erb:43
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  Rendered films/show.html.erb within layouts/application (Duration: 22.1ms | Allocations: 10557)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 13055)
+Completed 200 OK in 31ms (Views: 26.4ms | ActiveRecord: 1.1ms | Allocations: 16126)
+
+
+Started GET "/films/1" for ::1 at 2022-12-27 14:27:53 -0500
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:25
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/films/show.html.erb:43
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  Rendered films/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4205)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 6470)
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 0.8ms | Allocations: 7469)
+
+
+Started GET "/films/1" for ::1 at 2022-12-27 14:28:32 -0500
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:25
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/films/show.html.erb:43
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  Rendered films/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 4093)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 6357)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.4ms | Allocations: 7108)
+
+
+Started GET "/films/1" for ::1 at 2022-12-27 14:29:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:25
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/films/show.html.erb:43
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  Rendered films/show.html.erb within layouts/application (Duration: 29.5ms | Allocations: 11015)
+  Rendered layout layouts/application.html.erb (Duration: 93.6ms | Allocations: 45294)
+Completed 200 OK in 118ms (Views: 95.3ms | ActiveRecord: 1.8ms | Allocations: 57355)
+
+
+Started GET "/films/1" for ::1 at 2022-12-27 14:30:17 -0500
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/films_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering films/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:25
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/films/show.html.erb:43
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/films/show.html.erb:44
+  Rendered films/show.html.erb within layouts/application (Duration: 16.6ms | Allocations: 4813)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 7524)
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.8ms | Allocations: 8925)
+
+

@@ -32,7 +32,8 @@
 <% @directors.each do |director| %>
     <ul>
        <li>
-          <%= content_tag(:p, director.name) %>
+          <%# <%=content_tag(:p, director.name) %>
+          <%= link_to director.name, director%>
        </li>
     </ul>
       

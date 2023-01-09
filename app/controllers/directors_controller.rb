@@ -1,6 +1,9 @@
 class DirectorsController < ApplicationController 
     def show
         @directors = Director.all
+        @director = Director.find(params[:id])
+        @films = Film.all
+        @film = Film.find(params[:id])
     end 
 
     def new 
@@ -23,3 +26,4 @@ class DirectorsController < ApplicationController
     end
 
 end
+

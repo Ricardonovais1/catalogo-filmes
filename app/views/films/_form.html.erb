@@ -8,6 +8,9 @@
    <%= f.label 'Gênero: '%>
    <%= f.collection_select :category_id, Category.all, :id, :name %><br>
 
+   <%= f.label 'Diretor: '%>
+   <%= f.collection_select :director_id, Director.all, :id, :name %><br>
+
    <%= f.label 'Sinopse: ' %>
    <%= f.text_area :synopsis %>
 

@@ -12,6 +12,7 @@ class FilmsController < ApplicationController
         @film = Film.new(name:        params[:film][:name], 
                          year:        params[:film][:year],
                          category_id: params[:film][:category_id],
+                         director_id: params[:film][:director_id],
                          synopsis:    params[:film][:synopsis],
                          duration:    params[:film][:duration])
         
@@ -31,10 +32,11 @@ class FilmsController < ApplicationController
         @film = Film.find(params[:id])
 
         if @film.update(name:        params[:film][:name], 
-                       year:        params[:film][:year],
-                       category_id: params[:film][:category_id],
-                       synopsis:    params[:film][:synopsis],
-                       duration:    params[:film][:duration])
+                        year:        params[:film][:year],
+                        category_id: params[:film][:category_id],
+                        director_id: params[:film][:director_id],
+                        synopsis:    params[:film][:synopsis],
+                        duration:    params[:film][:duration])
             return redirect_to film_path(@film.id)
         end
 

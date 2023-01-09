@@ -1,0 +1,24 @@
+<h2>Diretor: <%= @director.name%></h2>
+
+<dl>
+   <dd>
+      <strong>Nome: </strong><%= @director.name%>
+   </dd>
+   <dd>
+      <strong>Categoria: </strong><%= @director.category.name%>
+   </dd>
+   <dd>
+      <strong>Ano de nascimento: </strong><%= @director.birth_year%>
+   </dd>
+   <dd>
+      <strong>País: </strong><%= @director.country%>
+   </dd>
+   <dd>
+      <strong>Filmes: </strong>
+        
+        <%@director.film.each do |film | %>
+                <%= content_tag(:p, film.name)  %>
+        <%end%>
+   </dd>
+</dl>
+

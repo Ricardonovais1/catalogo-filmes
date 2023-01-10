@@ -15540,3 +15540,701 @@ Processing by DirectorsController#show as HTML
 Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.5ms | Allocations: 5389)
 
 
+Started GET "/directors/3" for ::1 at 2023-01-10 08:42:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DirectorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDirector Load (0.2ms)[0m  [1m[34mSELECT "directors".* FROM "directors" WHERE "directors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/directors_controller.rb:4:in `show'
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/directors_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering directors/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/directors/show.html.erb:8
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE "films"."director_id" = ?[0m  [["director_id", 3]]
+  ↳ app/views/directors/show.html.erb:19
+  Rendered directors/show.html.erb within layouts/application (Duration: 23.8ms | Allocations: 9606)
+  Rendered layout layouts/application.html.erb (Duration: 148.1ms | Allocations: 45077)
+Completed 200 OK in 198ms (Views: 151.9ms | ActiveRecord: 2.9ms | Allocations: 62997)
+
+
+Started GET "/" for ::1 at 2023-01-10 08:42:21 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1261)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 4013)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 4774)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 08:42:22 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.2ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 28.5ms | Allocations: 6281)
+  Rendered films/new.html.erb within layouts/application (Duration: 31.6ms | Allocations: 6585)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 9105)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.4ms | Allocations: 9907)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 08:48:29 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.2ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 30.4ms | Allocations: 13018)
+  Rendered films/new.html.erb within layouts/application (Duration: 32.0ms | Allocations: 13516)
+  Rendered layout layouts/application.html.erb (Duration: 103.7ms | Allocations: 53913)
+Completed 200 OK in 127ms (Views: 104.9ms | ActiveRecord: 2.4ms | Allocations: 64243)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 08:50:46 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 8.6ms | Allocations: 3643)
+  Rendered films/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3710)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 7464)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.2ms | Allocations: 7818)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 08:53:01 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 7.5ms | Allocations: 3404)
+  Rendered films/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3465)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 7167)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.3ms | Allocations: 7441)
+
+
+Started GET "/" for ::1 at 2023-01-10 08:53:32 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1269)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4012)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 4825)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 08:53:34 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 10.0ms | Allocations: 3480)
+  Rendered films/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3545)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5843)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.3ms | Allocations: 6146)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 08:53:34 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 960)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 3487)
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.0ms | Allocations: 4271)
+
+
+Started GET "/directors/new" for ::1 at 2023-01-10 08:53:36 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3415)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 5919)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 6709)
+
+
+Started GET "/" for ::1 at 2023-01-10 08:56:34 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1153)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 5632)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.1ms | Allocations: 6464)
+
+
+Started GET "/" for ::1 at 2023-01-10 08:56:35 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3283)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 3574)
+
+
+Started GET "/" for ::1 at 2023-01-10 08:56:36 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3288)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 3557)
+
+
+Started GET "/" for ::1 at 2023-01-10 08:58:39 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1151)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5631)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.1ms | Allocations: 6428)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:00:34 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1158)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 5628)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.1ms | Allocations: 6448)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:01:07 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4701)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 4992)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:01:29 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4689)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 4957)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:04:46 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4702)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms | Allocations: 4970)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:05:10 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4708)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.1ms | Allocations: 4976)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:06:00 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4724)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.3ms | Allocations: 4992)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:06:33 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 4740)
+Completed 200 OK in 21ms (Views: 20.9ms | ActiveRecord: 0.2ms | Allocations: 5008)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:07:02 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 4708)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.2ms | Allocations: 4976)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:07:04 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 3283)
+Completed 200 OK in 46ms (Views: 45.5ms | ActiveRecord: 0.1ms | Allocations: 3552)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:07:13 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3332)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 3601)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:07:26 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4732)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.2ms | Allocations: 5000)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:07:36 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4726)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 4994)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:08:21 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 4718)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.2ms | Allocations: 4986)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:08:22 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3310)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.2ms | Allocations: 3579)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:08:42 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4718)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.1ms | Allocations: 4986)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:08:56 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 4727)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.2ms | Allocations: 5008)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:09:07 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4719)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.2ms | Allocations: 4987)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:09:46 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4699)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 4967)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:09:48 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3295)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 3563)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:10:09 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 4709)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 4977)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:10:24 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4708)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.3ms | Allocations: 4976)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 09:10:34 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 7.5ms | Allocations: 4044)
+  Rendered films/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 4314)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 6879)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.2ms | Allocations: 7491)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 09:10:34 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.2ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 8.5ms | Allocations: 3395)
+  Rendered films/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3456)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 5754)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.3ms | Allocations: 6053)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:10:35 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 922)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3434)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 4046)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 09:10:36 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 8.0ms | Allocations: 3520)
+  Rendered films/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3585)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 5896)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.2ms | Allocations: 6201)
+
+
+Started GET "/directors/new" for ::1 at 2023-01-10 09:10:37 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3323)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5821)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 6455)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:10:38 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3304)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 3594)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 09:10:40 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 9.4ms | Allocations: 3413)
+  Rendered films/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3478)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5776)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.3ms | Allocations: 6059)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:10:41 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 552)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2850)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 3125)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 09:10:42 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 9.2ms | Allocations: 3404)
+  Rendered films/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3465)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 5766)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.3ms | Allocations: 6043)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:10:43 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 531)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 2833)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 3104)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:18:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1829)
+  Rendered layout layouts/application.html.erb (Duration: 106.6ms | Allocations: 41572)
+Completed 200 OK in 126ms (Views: 109.3ms | ActiveRecord: 0.6ms | Allocations: 49560)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:19:37 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 669)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4633)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4982)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:19:58 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 555)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4282)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4551)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:20:13 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 534)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4263)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4540)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:20:21 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 537)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 4260)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 4537)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:22:16 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 543)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4271)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4540)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:22:55 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 555)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4287)
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4564)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:22:58 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 5386)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 8135)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.6ms | Allocations: 9997)
+
+
+Started GET "/films/new" for ::1 at 2023-01-10 09:23:00 -0500
+Processing by FilmsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering films/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/films/_form.html.erb:9
+  [1m[36mDirector Load (0.2ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/films/_form.html.erb:12
+  Rendered films/_form.html.erb (Duration: 20.2ms | Allocations: 9847)
+  Rendered films/new.html.erb within layouts/application (Duration: 20.8ms | Allocations: 10149)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 12682)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.8ms | Allocations: 13462)
+
+
+Started GET "/categories/new" for ::1 at 2023-01-10 09:23:01 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 560)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 2861)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 3180)
+
+
+Started GET "/directors/new" for ::1 at 2023-01-10 09:23:02 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3421)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 5926)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 6708)
+
+
+Started GET "/directors/new" for ::1 at 2023-01-10 09:23:57 -0500
+Processing by DirectorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering directors/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/directors/new.html.erb:21
+  [1m[36mDirector Load (0.1ms)[0m  [1m[34mSELECT "directors".* FROM "directors"[0m
+  ↳ app/views/directors/new.html.erb:32
+  Rendered directors/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2592)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 6430)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.2ms | Allocations: 6739)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:23:57 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 834)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3299)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3572)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:24:13 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:4
+  Rendered home/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 839)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4726)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.1ms | Allocations: 4994)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:26:08 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1155)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 5668)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms | Allocations: 6479)
+
+
+Started GET "/" for ::1 at 2023-01-10 09:27:22 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1152)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5693)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.1ms | Allocations: 6514)
+
+

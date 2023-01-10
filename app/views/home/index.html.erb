@@ -1,5 +1,10 @@
-<h1>Este é o index</h1>
+<div class="main">
+    <h1>Filmes cadastrados:</h1>
 
-<% @films.each do |film|  %>
-           <%= link_to film.name, film %><br>      
-<% end %>
+    <div class="films-list">
+        <% @films.each do |film|  %>
+                <%= link_to film.name, film %><br>      
+        <% end %>
+    </div>   
+</div>
+

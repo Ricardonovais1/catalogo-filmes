@@ -19,6 +19,9 @@
         <strong>Filme: </strong><%= @film.name %>
     </dd>
     <dd>
+       <%= image_tag("data:image/jpg;base64,#{@film.image}") %>
+    </dd>
+    <dd>
         <strong>Ano: </strong><%= @film.year %>
     </dd>
      <dd>

@@ -11,6 +11,8 @@
    <%= f.label 'Diretor: '%>
    <%= f.collection_select :director_id, Director.all, :id, :name %><br>
 
+   <%= f.file_field :Image%>
+
    <%= f.label 'Sinopse: ' %>
    <%= f.text_area :synopsis %>
 

@@ -1,29 +1,40 @@
-class DirectorsController < ApplicationController 
-    def show
+class DirectorsController < ApplicationController
+    def index 
         @directors = Director.all
-        @director = Director.find(params[:id])
-        @films = Film.all
-        @film = Film.find(params[:id])
     end 
 
-    def new 
+    def new
         @director = Director.new
-        @directors = Director.all
-
-    end 
-
-    def create 
-        @director = Director.new(name:             params[:director][:name],
-                                 country:          params[:director][:country],
-                                 birth_year:       params[:director][:birth_year],
-                                 category_id:      params[:director][:category_id])
-        if @director.save 
-            return redirect_to new_director_path
-        end
-
-        render :new
-            
     end
 
-end
+    def create 
+        @director = Director.new(params.require(:director).permit(:name, :nationality, :birth_year, :category_id))
+        if @director.save
+            flash[:notice] = "Diretor cadastrado com sucesso"
+            return redirect_to director_path(@director.id)
+        else 
+            flash[:notice] = "Houve um problema!"
+        end
+        render :new
+    end
 
+    def show
+        @director = Director.find(params[:id]) 
+        @films = Film.all
+    end
+
+    def edit 
+        @director = Director.find(params[:id]) 
+    end
+
+    def update 
+        @director = Director.find(params[:id]) 
+        if @director.update(params.require(:director).permit(:name, :nationality, :birth_year, :category_id))
+            flash[:notice] = "Diretor atualizado com sucesso"
+            return redirect_to director_path(@director.id)
+        else 
+            flash[:notice] = "Houve um problema!"
+        end
+        render :edit
+    end
+end

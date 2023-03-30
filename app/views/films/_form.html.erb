@@ -1,24 +1,56 @@
-<%= form_with model: film do | f | %>
-   <%= f.label 'Título: ' %>
-   <%= f.text_field :name %>
+<%= form_with model: @film do |f| %>
 
-   <%= f.label 'Ano: ' %>
-   <%= f.number_field :year %>
+<div class="input-group input-group-lg mt-5">
+    <%= f.label 'Nome:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_field :title, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"  %><br />
+</div>
 
-   <%= f.label 'Gênero: '%>
-   <%= f.collection_select :category_id, Category.all, :id, :name %><br>
+<div class="input-group input-group-lg mt-3">
+  <%= f.label :category_id, 'Gênero:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: "form-control" %>
+</div>
 
-   <%= f.label 'Diretor: '%>
-   <%= f.collection_select :director_id, Director.all, :id, :name %><br>
+<div class="input-group input-group-lg mt-3">
+  <%= f.label :director_id, 'Diretor:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg" %>
+  <%= f.collection_select :director_id, Director.all, :id, :name, {}, class: "form-control" %>
+</div>
 
-   <%= f.file_field :Image%>
+<div class="input-group input-group-lg mt-3">
+    <%= f.label 'País:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_field :country, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"   %><br />
+</div>
 
-   <%= f.label 'Sinopse: ' %>
-   <%= f.text_area :synopsis %>
+<div class="input-group input-group-lg mt-3">
+    <%= f.label 'Sinopse:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_area :synopsis, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
 
-   <%= f.label 'Duração: ' %>
-   <%= f.number_field :duration %>
+<div class="input-group input-group-lg mt-3">
+    <%= f.label 'Elenco:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_area :cast, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
 
-   <%= f.submit 'Salvar' %><br>
+<div class="input-group input-group-lg mt-3">
+    <%= f.label 'Classificação:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_field :rating, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
 
+<div class="input-group input-group-lg mt-3">
+    <%= f.label 'Ano:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.number_field :year, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
+
+<div class="input-group input-group-lg mt-3">
+    <%= f.label 'Duração (min):', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.number_field :duration, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
+
+<div class="input-group input-group-lg mt-3">
+    <%= f.file_field :image, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
+
+ <div  class="d-grid">
+    <%= f.submit 'Salvar filme', class: "btn btn-success mb-3 mt-5 btn-lg" %>
+ </div>
 <% end %>
+

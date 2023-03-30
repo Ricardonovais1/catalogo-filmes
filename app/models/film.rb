@@ -1,4 +1,7 @@
 class Film < ApplicationRecord
-    belongs_to :category
-    belongs_to :director
+  attribute :cast, :string
+  enum status: { rascunho: 0, publicado: 2 }
+  belongs_to :director
+  belongs_to :category
+  has_one_attached :image
 end

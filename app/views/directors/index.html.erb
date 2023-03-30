@@ -1,0 +1,11 @@
+<div class="mx-auto p-4" style="width: 70%; background: #e9ecef">
+
+<h1 class="mb-5">Diretores</h1>
+
+<% @directors.each do |director| %>
+
+<h5><%= link_to director.name, director_path(director) %></h5><br>
+
+<% end %>
+
+</div>

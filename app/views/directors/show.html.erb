@@ -1,24 +1,31 @@
-<h2>Diretor: <%= @director.name%></h2>
+<div class="mx-auto p-4" style="width: 70%; background: #e9ecef">
 
-<dl>
-   <dd>
-      <strong>Nome: </strong><%= @director.name%>
-   </dd>
-   <dd>
-      <strong>Categoria: </strong><%= @director.category.name%>
-   </dd>
-   <dd>
-      <strong>Ano de nascimento: </strong><%= @director.birth_year%>
-   </dd>
-   <dd>
-      <strong>País: </strong><%= @director.country%>
-   </dd>
-   <dd>
-      <strong>Filmes: </strong>
+<div class="container">
+<h2 class="display-6">Informações do diretor(a) <%= @director.name %></h2>
+
+
+
+<%= link_to "Editar", edit_director_path %>
+        <dl>
+                <dd class="p-3"><strong>Nome:</strong> <%= @director.name %></dd>
+                <dd class="p-3"><strong>Gênero favorito: </strong><%= @director.category.name if @director.category %></dd>
+                <dd class="p-3"><strong>País: </strong><%= @director.nationality %></dd>
+                <dd class="p-3"><strong>Ano de nascimento: </strong><%= @director.birth_year %></dd>               
+                <dd class="p-3"><strong>Filmes: </strong>
+                     <% @films.select { |film| film.director_id == @director.id }.each do |film| %>
+                        <ul>
+                            <li><%= link_to film.title, film_path(film) %></li>
+                        </ul>
+                    <% end %>
+                </dd>       
+        </dl>
+
+        <%= link_to "Página inicial", root_path %>
+
+
+        <% if flash[:notice] %>
+        <%= flash[:notice] %>
+        <% end %>
+</div>
         
-        <%@director.film.each do |film | %>
-                <%= content_tag(:p, film.name)  %>
-        <%end%>
-   </dd>
-</dl>
-
+</div>

@@ -1,0 +1,11 @@
+<div class="mx-auto p-4" style="width: 70%; background: #e9ecef">
+
+<h1 class="mb-5">Gêneros</h1>
+
+<% @categories.each do |category| %>
+
+<h5><%= link_to category.name, category_path(category), class: "text-xl" %></h5><br>
+
+<% end %>
+
+</div>

@@ -1,110 +1,47 @@
 class FilmsController < ApplicationController
     def show
         @film = Film.find(params[:id])
-        @films = Film.all
     end
 
     def new
-        @film = Film.new   
+        @film = Film.new
     end
 
-    def create
-
-        if params[:film][:image]
-            img = params[:film][:image].read  
-            encoded_img = Base64.encode64(img)
-        else
-            encoded_img = nil
+    def create 
+        @film = Film.new(params.require(:film).permit(:title, :year, :synopsis, :country, :duration, :director_id, :category_id, :status, :image, :cast, :rating))
+        if @film.save
+            flash[:notice] = "Filme cadastrado com sucesso"
+            return redirect_to new_film_path
+        else 
+            flash[:notice] = "Houve um problema!"
         end
-
-        @film = Film.new(name:        params[:film][:name], 
-                         year:        params[:film][:year],
-                         category_id: params[:film][:category_id],
-                         director_id: params[:film][:director_id],
-                         synopsis:    params[:film][:synopsis],
-                         duration:    params[:film][:duration],
-                         image:       encoded_img 
-        )
-        
-
-            if @film.save
-                flash[:notice] = 'Filme registrado com sucesso!'
-                return redirect_to film_path(@film.id)
-            end
         render :new
     end
 
-    # def create
-    #     if params[:film][:image]
-    #       img = params[:film][:image].read  
-    #       File.open("public/uploads/#{params[:film][:image].original_filename}", 'wb') do |f|
-    #           f.write(img)
-    #       end
-    #       @film = Film.new(name:        params[:film][:name], 
-    #                        year:        params[:film][:year],
-    #                        category_id: params[:film][:category_id],
-    #                        director_id: params[:film][:director_id],
-    #                        synopsis:    params[:film][:synopsis],
-    #                        duration:    params[:film][:duration],
-    #                        image:       params[:film][:image].original_filename
-    #       )
-    #     else
-    #       @film = Film.new(name:        params[:film][:name], 
-    #                        year:        params[:film][:year],
-    #                        category_id: params[:film][:category_id],
-    #                        director_id: params[:film][:director_id],
-    #                        synopsis:    params[:film][:synopsis],
-    #                        duration:    params[:film][:duration],
-    #       )
-    #     end
-      
-    #     if @film.save
-    #       flash[:notice] = 'Filme registrado com sucesso!'
-    #       return redirect_to film_path(@film.id)
-    #     end
-      
-    #     render :new
-    #   end
-
     def edit 
         @film = Film.find(params[:id])
-    end  
+    end
 
     def update 
         @film = Film.find(params[:id])
-
-        if params[:film][:image]
-            img = params[:film][:image].read  
-            encoded_img = Base64.encode64(img)
-            if @film.update(name:        params[:film][:name], 
-                            year:        params[:film][:year],
-                            category_id: params[:film][:category_id],
-                            director_id: params[:film][:director_id],
-                            synopsis:    params[:film][:synopsis],
-                            duration:    params[:film][:duration],
-                            image:       encoded_img 
-                        )
-                return redirect_to film_path(@film.id)
-            end
-        else
-            if @film.update(name:        params[:film][:name], 
-                            year:        params[:film][:year],
-                            category_id: params[:film][:category_id],
-                            director_id: params[:film][:director_id],
-                            synopsis:    params[:film][:synopsis],
-                            duration:    params[:film][:duration],
-                        )
-                return redirect_to film_path(@film.id)
-            end      
+        if @film.update(params.require(:film).permit(:title, :year, :synopsis, :country, :duration, :director_id, :category_id, :status, :image, :cast, :rating))
+            flash[:notice] = "Filme atualizado com sucesso"
+            return redirect_to film_path(@film.id)
+        else 
+            flas[:notice] = "Houve um problema!"
         end
         render :edit
     end
 
-    def destroy
-        @film = Film.find(params[:id])
-        @film.destroy
-        # flash[:success] = 'Filme excluído com sucesso!'
-        redirect_to root_path, notice: "Article was successfully deleted."
-        
+    def publish 
+        film = Film.find(params[:id])
+        film.publicado!
+        redirect_to film_path(film.id)
+    end
+
+    def unpublish 
+        film = Film.find(params[:id])
+        film.rascunho!
+        redirect_to film_path(film.id)
     end
 end

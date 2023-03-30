@@ -1,32 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CatalogoFilmes</title>
+    <title>FilmsCatalog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
   </head>
 
   <body>
-  <nav class="navigation">
-      <ul class="nav-list" style="list-style-type:none;">
-          <li>
-              <%= link_to 'Home', root_path %>
-          </li>
-          <li>
-              <%= link_to 'Cadastrar filme', new_film_path %>
-          </li>
-          <li>
-              <%= link_to 'Cadastrar gênero', new_category_path %>
-          </li>
-          <li>
-              <%= link_to 'Cadastrar diretor', new_director_path %>
-          </li>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ms-0 me-0 mb-5 p-3" style="background-color: #e3f2fd; >
+  <div class="container-fluid">
+    <a class="navbar-brand display-5" href="#">FILM CATALOG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          
+        <li class="nav-item">
+          <a class="nav-link <%= 'active' if current_page?(root_path) %>" style="font-size: 1.4rem" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="font-size: 1.4rem" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filmes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if current_page?(root_path) %>"  style="font-size: 1.2rem" href="/">Filmes</a>
+            </li> 
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if current_page?(new_film_path) %>"  style="font-size: 1.2rem" href="/films/new">Novo Filme</a>
+            </li>          
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="font-size: 1.4rem" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Gêneros
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if current_page?(categories_path) %>"  style="font-size: 1.4rem" href="/categories">Gêneros</a>
+            </li>    
+             <li><hr class="dropdown-divider"></li>        
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if current_page?(new_category_path) %>"  style="font-size: 1.4rem" href="/categories/new">Novo Gênero</a>
+            </li>            
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="font-size: 1.4rem" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Diretores
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if current_page?(directors_path) %>"  style="font-size: 1.4rem" href="/directors">Diretores</a>
+            </li>    
+             <li><hr class="dropdown-divider"></li>        
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if current_page?(new_director_path) %>"  style="font-size: 1.4rem" href="/directors/new">Novo Diretor</a>
+            </li>           
+          </ul>
+        </li>
+
       </ul>
-  </nav>
+    </div>
+  </div>
+</nav>
     <%= yield %>
   </body>
 </html>

@@ -1,10 +1,24 @@
-<div class="main">
-    <h1>Filmes cadastrados:</h1>
+<div class="mx-auto p-4" style="width: 65%; background: #e9ecef">
 
-    <div class="films-list">
-        <% @films.each do |film|  %>
-                <%= link_to film.name, film %><br>      
-        <% end %>
-    </div>   
+<h1 class="mb-5">Catálogo de filmes</h1>
+<div class="row justify-content-start">
+
+
+<% @films.each do |film| %>
+
+
+<div class="card col-3 ms-3 me-3 mb-3 p-0" style="width: 18rem;">
+  <% if film.image.attached? %>
+      <%= image_tag(film.image, class: "card-img-top", style:"") %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= film.title %></h5>
+    <p class="card-text"><%= truncate(film.synopsis, length: 100) %></p>
+    <%= link_to film_path(film.id), class: "btn btn-primary" do %>
+        Detalhes
+    <% end %>
+  </div>
 </div>
 
+<% end %>
+</div>

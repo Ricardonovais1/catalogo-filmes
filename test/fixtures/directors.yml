@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  country: MyString
+  nationality: MyString
   birth_year: 1
-  main_category: one
+  category: one
 
 two:
   name: MyString
-  country: MyString
+  nationality: MyString
   birth_year: 1
-  main_category: two
+  category: two

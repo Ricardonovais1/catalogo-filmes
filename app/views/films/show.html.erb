@@ -1,55 +1,46 @@
 
-<h2>Descrição do filme <%= @film.name%></h2>
 
-<% if flash[:notice] %>
-    <div style="margin: 10px 0px">
+<div class="mx-auto p-4" style="width: 70%; background: #e9ecef">
+
+<div class="container">
+<h2 class="display-6">Informações do filme <%= @film.title %></h2>
+
+<div class="row">
+        <div class="col-3"> 
+                <% if @film.image.attached? %>
+                    <%= image_tag(@film.image, class: "img-fluid", style:"width: 300px") %>
+                <% end %>
+        </div>
+        <dl class="col-9">
+
+                <dd class="p-3"><strong>Nome:</strong> <%= @film.title %></dd>
+                <dd class="p-3"><strong>Gênero: </strong><%= @film.category.name if @film.category %></dd>
+                <dd class="p-3"><strong>Diretor: </strong><%= @film.director.name if @film.director %></dd>
+                <dd class="p-3"><strong>Sinopse: </strong><%= @film.synopsis %></dd>
+                <dd class="p-3"><strong>Elenco: </strong><%= @film.cast %></dd>
+                <dd class="p-3"><strong>Classificação: </strong><%= @film.rating %> anos</dd>
+                <dd class="p-3"><strong>País: </strong><%= @film.country %></dd>
+                <dd class="p-3"><strong>Ano: </strong><%= @film.year %></dd>
+                <dd class="p-3"><strong>Duração: </strong><%= @film.duration %> minutos </dd>
+                <dd class="p-3"><strong>Status: </strong><%= @film.status.capitalize %></dd>
+
+                <span class="d-inline-flex align-items-center">
+                        <% if @film.publicado? %>
+                            <%= button_to "Despublicar", unpublish_film_path, class: "btn btn-success me-2", method: "patch" %>
+                        <% else %>
+                            <%= button_to "Publicar", publish_film_path, class: "btn btn-success me-2", method: "patch" %>
+                        <% end %> 
+                        <%= link_to "Editar", edit_film_path, class: "btn btn-success me-2" %>
+                        <%= link_to "Página inicial", root_path, class: "btn btn-success me-2" %>
+                </span> 
+        </dl>
+
+        
+
+
+        <% if flash[:notice] %>
         <%= flash[:notice] %>
-    </div>
-<% end %>
-
-<% if flash[:success] %>
-    <div style="margin: 10px 0px">
-        <%= flash[:success] %>
-    </div>
-<% end %>
-
-<dl>
-    <% #Poderia ter um <dt> </dt>%>
-    <dd>
-        <strong>Filme: </strong><%= @film.name %>
-    </dd>
-    <dd>
-       <%= image_tag("data:image/jpg;base64,#{@film.image}") %>
-    </dd>
-    <dd>
-        <strong>Ano: </strong><%= @film.year %>
-    </dd>
-     <dd>
-        <strong>Categoria: </strong><%= @film.category[:name] %>
-    </dd>
-    <dd>
-        <strong>Diretor: </strong><%= @film.director[:name]%>
-    </dd>
-    <dd>
-        <strong>Sinopse: </strong><%= @film.synopsis %>
-    </dd>
-    <dd>
-        <strong>Duração (min): </strong><%= "#{@film.duration} minutos" %>
-    </dd>
-</dl>
-
-
-      <%= link_to 'Editar', edit_film_path %>
-
-
-<h2>Outros filmes do gênero <%= @film.category[:name]%>:</h2>
-
-
-
-<% @films.each do |film| %>
-  <% if film.category[:name] == @film.category[:name]  %>
-      <%= content_tag(:p, film.name) %>
-  <% end %>
-<% end %>
-
-
+        <% end %>
+</div>
+</div>      
+</div>
